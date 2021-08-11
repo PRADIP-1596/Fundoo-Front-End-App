@@ -10,23 +10,59 @@ import './Login.css';
 
 export class Login extends Component {
 
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          username: "",
-          password: "",
-          passwordError: false,
-          usernameError: false,
-        };
-      }
-      changeHandler = (e) => {
-        this.setState({
-          [e.target.name]: e.target.value,
-        });
-      };
+   
+  constructor(props) {
+    super(props)
+   
 
+    this.state = {
+        email: '',
+        passsword: '',
+        emailError: false,
+        passwordError: false
+    }
+}
+
+validation = () => {
+    let isError = false;
+    const errors= this.state;
+    errors.emailError= this.state.email === '' ? true : false;
+    errors.passwordError= this.state.password === '' ? true : false;
+
+    this.setState({
+        ...errors,
+    })
+    
+    return isError =errors.emailError || errors.passwordError
       
+
+}
+
+Next = () => {
+    var isValidated = this.validation();
+    if(!isValidated){
+        console.log("validation successfull");
+    }
+}
+showPassword = () => {
+  console.log("showpassword");
+  if (this.state.textType === "password") {
+    this.setState({
+      textType: "text",
+    });
+  } else {
+    this.setState({
+      textType: "password",
+    });
+  }
+};
+
+change = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
     
     render() {
         return (
@@ -43,23 +79,18 @@ export class Login extends Component {
             <span className="lettero">o</span>
           </div>
           <h1 className="heading-sign">Sign in </h1>
-          <h1 className="heading-account"> Use your Fundoo Account </h1>
+            <h1 className="heading-account"> Use your Fundoo Account </h1>
           <div className="form">
             <div className="sign-email1">
-            <TextField
-                name="username"
-                error={this.state.usernameError}
-                fullWidth
-                id="outlined-basic4"
-                label="Email or Phone"
-                helperText={
-                  this.state.usernameError
-                    ? "Enter an email or phone number "
-                    : ""
-                }
-                variant="outlined"
-                onChange={(e) => this.changeHandler(e)}
-              />
+            <TextField 
+                    error = {this.state.emailError}
+                    label="Email"
+                    type="text"
+                    name="email"
+                    variant="outlined"
+                    fullWidth
+                    onChange={e => this.change(e)}
+                    helperText={this.state.emailError ? "Enter Your Email Id" : ''}/>
               <br></br>
               <br></br>
             </div>
@@ -69,20 +100,17 @@ export class Login extends Component {
               </a>
             </div>
             <div className="sign-email1">
-        
-              <TextField
-                name="password"
-                type="password"
-                error={this.state.usernameError}
-                fullWidth
-                id="outlined-basic5"
-                label="Password"
-                helperText={
-                  this.state.usernameError ? "Enter a valid password " : ""
-                }
-                variant="outlined"
-                onChange={(e) => this.changeHandler(e)}
-              />
+
+            <TextField 
+                    error = {this.state.passwordError}
+                    label="Password"
+                    type="text"
+                    name="passsword"
+                    variant="outlined"
+                    fullWidth
+                    onChange={e => this.change(e)}
+                    helperText={this.state.passwordError? "Enter Valid Password" : ''}/>
+                    <div>
               <br></br>
               <br></br>
             </div>
@@ -112,8 +140,7 @@ export class Login extends Component {
               </div>
             </div>
           </div>
-          
-         
+            
             <div className="lastsec">
             <div className="signin-link">
               <div className="signininstead" to="/">
@@ -121,9 +148,7 @@ export class Login extends Component {
               </div>
             </div>
             </div>
-        
-           
-            <div className="nextbtn">
+            <div class="next">
               <Button
                 variant="contained"
                 className="next"
@@ -133,11 +158,12 @@ export class Login extends Component {
                 Next
               </Button>
             </div>
+         
           </div>
         </div>
       </div>
                
-        //    </div>
+            </div>
             
         )
     }

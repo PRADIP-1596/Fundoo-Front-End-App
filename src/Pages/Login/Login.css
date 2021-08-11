@@ -114,6 +114,10 @@ width: auto;
 .accname{
     margin-top: 100px;
 }
+.signininstead{
+    margin-top:20%;
+
+}
 @media only screen and (max-width:600px) {
     .signin-container{
         height: 100%;
@@ -143,8 +147,10 @@ width: auto;
         margin-bottom: 15px;
     }
 }
-.nextbtn{
+.next{
     margin-left: 85%;
+      bottom:40px;
+    
 }
 @media only screen and (max-width:250px) { 
 

@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
-}
+/* import React, { Component } from 'react'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+export class FormValidation extends Component {
+    constructor(props) {
+        super(props)
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+        this.state = {
+            email: '',
+            passsword: '',
+            emailError: false,
+            passwordError: false
+        }
+    }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+    validation = () => {
+        let isError = false;
+        const errors= this.state;
+        errors. emailError= this.state.email === '' ? true : false;
+        errors. passwordError= this.state.password === '' ? true : false;
 
-.App-link {
-  color: #61dafb;
-}
+        this.setState({
+            ...errors,
+        })
+        return isError = errors. emailError || errors.passwordError
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+    }
+
+    Next = () => {
+        var isValidated = this.validation();
+        if(!isValidated){
+            console.log("validation successfull");
+        }
+    }
+
+    change = e => {
+        this.setState({
+          [e.target.name]: e.target.value
+        });
+      }
+
+    render() {
+        return (
+            <div className="validation">
+                <TextField 
+                    error = {this.state. emailError}
+                    label="Email"
+                    type="text"
+                    name="email"
+                    variant="outlined"
+                    fullWidth
+                    onChange={e => this.change(e)}
+                    helperText={this.state.emailError ? "Enter Your Email Id" : ''}/>
+                <TextField 
+                    error = {this.state.passwordError}
+                    label="Password"
+                    type="text"
+                    name="Password"
+                    fullWidth
+                    variant="outlined"
+                    onChange={e => this.change(e)}
+                    helperText={this.state.passwordError ? "Enter  Password" : ''} />
+                    <div>
+                <Button variant="contained" color="primary" onClick={this.Next}>
+                    Next
+                </Button>
+                </div>
+            </div>
+        )
+    }
+} */
+
+/* export default FormValidation */

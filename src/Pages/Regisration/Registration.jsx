@@ -48,6 +48,36 @@ export class Registration extends Component {
           });
         }
       };
+      validation = () => {
+        let isError = false;
+        const errors= this.state;
+        errors.lNameError= this.state.lName === '' ? true : false;
+        errors.fNameError= this.state.fName === '' ? true : false;
+        errors.emailError= this.state.email === '' ? true : false;
+        errors.passwordError= this.state.password === '' ? true : false;
+        errors.confirmError= this.state.confirm === '' ? true : false;
+
+        this.setState({
+            ...errors,
+        })
+        return isError = errors.lNameError || errors.fNameError||errors.emailError
+        || errors.passwordError||errors.confirmError
+
+    }
+
+    Next = () => {
+        var isValidated = this.validation();
+        if(!isValidated){
+            console.log("validation successfull");
+        }
+    }
+
+    change = e => {
+        this.setState({
+          [e.target.name]: e.target.value
+        });
+      }
+
     
     render() {
         return (
@@ -119,7 +149,7 @@ export class Registration extends Component {
                 type={this.state.textType}
                 error={this.state.passwordError}
                 id="outlined-password-input1"
-                name="password"
+                // name="password"
                 label="Password"
                 className="password1"
                 autoComplete="current-password"
@@ -160,12 +190,9 @@ export class Registration extends Component {
             </div>
             <div className="lastsec">
               <div className="signin-link">
-                {/* <Link className="signininstead" to="/signin">
-                  {" "}
-                  Sign in instead
-                </Link> */}
+             
               </div>
-              <div className="nextbtn">
+              <div className="next">
                 <Button
                   variant="contained"
                   className="next"
@@ -192,7 +219,6 @@ export class Registration extends Component {
       </div>
     );
   
-
             </div>
         )
     }
