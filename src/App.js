@@ -5,13 +5,16 @@
 // import Login from './Pages/Login/Login';
 // import Registration from './Pages/Regisration/Registration';
 
-import { Resetpassword } from "./Pages/ResetPassword/Resetpassword";
+import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
+// import { Resetpassword } from "./Pages/ResetPassword/Resetpassword";
 
 
 function App() {
   return (
     <div>
-  <Resetpassword></Resetpassword>
+      <ForgotPassword></ForgotPassword>
+
+  {/* <Resetpassword></Resetpassword> */}
       {/* <Login></Login> */}
 {/* 
       <Login></Login> */}
