@@ -7,23 +7,27 @@ export class FormValidation extends Component {
         super(props)
 
         this.state = {
-            email: '',
-            passsword: '',
-            emailError: false,
-            passwordError: false
+          
+          
+         password: "",
+          confirm: "",
+          passwordError: false,
+          confirmError: false,
+         
+          
         }
     }
 
     validation = () => {
         let isError = false;
         const errors= this.state;
-        errors. emailError= this.state.email === '' ? true : false;
         errors. passwordError= this.state.password === '' ? true : false;
+        errors. confirmError= this.state.confirm === '' ? true : false;
 
         this.setState({
             ...errors,
         })
-        return isError = errors. emailError || errors.passwordError
+        return isError = errors. confirmError || errors.passwordError
 
     }
 
@@ -44,23 +48,23 @@ export class FormValidation extends Component {
         return (
             <div className="validation">
                 <TextField 
-                    error = {this.state. emailError}
-                    label="Email"
-                    type="text"
-                    name="email"
-                    variant="outlined"
-                    fullWidth
-                    onChange={e => this.change(e)}
-                    helperText={this.state.emailError ? "Enter Your Email Id" : ''}/>
-                <TextField 
                     error = {this.state.passwordError}
                     label="Password"
                     type="text"
-                    name="Password"
+                    name="password"
+                    variant="outlined"
+                    fullWidth
+                    onChange={e => this.change(e)}
+                    helperText={this.state.passwordError ? "Enter Valid Password" : ''}/>
+                <TextField 
+                    error = {this.state.confirmError}
+                    label="Confirm"
+                    type="text"
+                    name="Confirm"
                     fullWidth
                     variant="outlined"
                     onChange={e => this.change(e)}
-                    helperText={this.state.passwordError ? "Enter  Password" : ''} />
+                    helperText={this.state.confirmError ? "Confirmed Password" : ''} />
                     <div>
                 <Button variant="contained" color="primary" onClick={this.Next}>
                     Next
