@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 import './Resetpassword.css';
-
+import {  Router, Route, Switch } from "react-router-dom";
 export class Resetpassword extends Component {
     constructor(props) {
         super(props);
@@ -50,7 +50,7 @@ export class Resetpassword extends Component {
 
             <div className="first-container">
         <div className="resetpassword-container">
-          <div className="fundoo-sign">
+          <div className="fundoo">
             <span className="letterF">F</span>
             <span className="letteru">u</span>
             <span className="lettern">n</span>
@@ -59,8 +59,8 @@ export class Resetpassword extends Component {
             <span className="lettero">o</span>
           </div>
           <div class="topname">
-          <h3 className="heading-sign">Account reovery</h3>
-          <h4 className="heading-account">Recover your Fundoo Account</h4>
+          <h3 className="headingsign">Account reovery</h3>
+          <h4 className="headingaccount">Recover your Fundoo Account</h4>
           </div>
           <div className="email1">
           <TextField 
@@ -88,9 +88,10 @@ export class Resetpassword extends Component {
                     helperText={this.state.confirmError ? "Confirmed Password" : ''} />
                     <div>
           </div>
-        
+          </div>
+          <br></br><br></br><br></br>
 
-           <div className="Resetbtn">
+           <div className="buttonname">
             <Button
               variant="contained"
               className="next"
@@ -100,7 +101,7 @@ export class Resetpassword extends Component {
               Reset
             </Button>
           </div> 
-        </div>
+      
       </div>
       );
   

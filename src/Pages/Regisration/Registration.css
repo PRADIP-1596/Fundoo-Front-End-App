@@ -162,9 +162,7 @@ width: auto;
     flex-direction: row;
 }
 
-.nextbtn{
-    margin-left: 100px;
-}
+
 .section2{
     padding-left: 48px;
     margin-top: 100px;
@@ -173,11 +171,7 @@ width: auto;
     flex-wrap: wrap;
 }
 
-.next{
-    margin-left: 85%;
-      bottom:40px;
-    
-}
+
 @media only screen and (max-width:600px) {
     .container{
         height: 100%;
@@ -257,4 +251,9 @@ width: auto;
         padding-top: 10%;
     }
 
+}
+
+.next{
+    margin-left:80%;
+      bottom:80px; 
 }
