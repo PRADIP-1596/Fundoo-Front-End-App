@@ -5,6 +5,9 @@
  import Button from "@material-ui/core/Button";
  import FormControlLabel from "@material-ui/core/FormControlLabel";
  import FormHelperText from "@material-ui/core/FormHelperText";
+//  import React, { Component } from "react";
+//  import { Link } from "react-router-dom";
+ import {  Router, Route, Switch } from "react-router-dom";
 
 export class Registration extends Component {
     constructor(props) {
@@ -190,7 +193,7 @@ export class Registration extends Component {
             </div>
             <div className="lastsec">
               <div className="signin-link">
-             
+              </div>
               </div>
               <div className="next">
                 <Button
@@ -201,7 +204,7 @@ export class Registration extends Component {
                 >
                   Next
                 </Button>
-              </div>
+              
             </div>
           </form>
           <div className="section2">

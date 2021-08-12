@@ -3,7 +3,7 @@ import './ForgotPassword.css';
 import TextField from '@material-ui/core/TextField';
 // import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
-
+import {  Router, Route, Switch } from "react-router-dom";
 export class ForgotPassword extends Component {
 
     constructor(props) {
@@ -47,12 +47,12 @@ export class ForgotPassword extends Component {
         return (
             <div className="first-container">
             <div className="forgotpassword-container">
-                <div className="fundoo fundoo-sign">
+                <div className="fundoosign">
                     <span className="letterF">F</span>
                     <span className="letteru">u</span><span className="lettern">n</span><span className="letterd">d</span><span className="letterO">o</span><span className="lettero">o</span>
                 </div>
-                <h3 className="heading-sign">Forgot Password </h3>
-                <h4 className="heading-account"> Enter your Fundoo Account </h4>
+                <h3 className="headingsign">Forgot Password </h3>
+                <h4 className="headingaccount"> Enter your Fundoo Account </h4>
                 <div className="email1">
                    
                 <TextField 
@@ -64,8 +64,9 @@ export class ForgotPassword extends Component {
                     fullWidth
                     onChange={e => this.change(e)}
                     helperText={this.state.usernameError? "Enter Username" : ''}/>
-                    <br></br><br></br>
+                   
                 </div>
+                <br></br><br></br>
                 <div className="sendbtn">
                     <Button variant="contained" className="next" color="primary" onClick={this.Send}>
                         Send
