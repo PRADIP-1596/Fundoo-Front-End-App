@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react'
 import TextField from "@material-ui/core/TextField";
 // import Checkbox from "@material-ui/core/Checkbox";
@@ -18,7 +16,7 @@ export class Login extends Component {
 
     this.state = {
         email: '',
-        passsword: '',
+        password: '',
         emailError: false,
         passwordError: false
     }
@@ -71,7 +69,7 @@ change = e => {
 
 <div className="first-container">
         <div className="signin-container">
-          <div className="fundoo fundoo-sign">
+          <div className="fundoosign">
             <span className="letterF">F</span>
             <span className="letteru">u</span>
             <span className="lettern">n</span>
@@ -79,8 +77,8 @@ change = e => {
             <span className="letterO">o</span>
             <span className="lettero">o</span>
           </div>
-          <h1 className="heading-sign">Sign in </h1>
-            <h1 className="heading-account"> Use your Fundoo Account </h1>
+          <h1 className="headingsign">Sign in </h1>
+            <h1 className="headingaccount"> Use your Fundoo Account </h1>
           <div className="form">
             <div className="sign-email1">
             <TextField 
@@ -96,7 +94,7 @@ change = e => {
               <br></br>
             </div>
             <div className="forgotemail-link">
-              <a className="forgot-email" href="#outlined-basic4">
+              <a className="forgot-email" href="Resetpassword">
                 Forgot email?
               </a>
             </div>
@@ -106,7 +104,7 @@ change = e => {
                     error = {this.state.passwordError}
                     label="Password"
                     type="text"
-                    name="passsword"
+                    name="password"
                     variant="outlined"
                     fullWidth
                     onChange={e => this.change(e)}
@@ -117,7 +115,7 @@ change = e => {
             </div>
 
             <div className="forgotemail-link">
-              <a className="forgot-email" href="#outlined-basic4">
+              <a className="forgot-email" href="ForgotPassword">
                 Forgot password?
               </a>
             </div>
@@ -143,12 +141,18 @@ change = e => {
           </div>
             
             <div className="lastsec">
-            <div className="signin-link">
-              <div className="signininstead" to="/">
+            {/* <div className="signin-link">
+              <div className="signininstead" href="ForgotPassword">
                 Create account
               </div>
+            </div> */}
+             <div className="forgotemail-link">
+              <a className="forgot-email" href="Registration">
+                Create account
+              </a>
             </div>
             </div>
+            <br></br>
             <div class="next">
               <Button
                 variant="contained"

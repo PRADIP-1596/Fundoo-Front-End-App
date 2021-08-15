@@ -50,7 +50,7 @@ export class Resetpassword extends Component {
 
             <div className="first-container">
         <div className="resetpassword-container">
-          <div className="fundoo">
+        <div className="fundoosign">
             <span className="letterF">F</span>
             <span className="letteru">u</span>
             <span className="lettern">n</span>
@@ -89,7 +89,16 @@ export class Resetpassword extends Component {
                     <div>
           </div>
           </div>
-          <br></br><br></br><br></br>
+          
+
+          
+          <br></br><br></br>
+          <div className="forgotemail-link">
+              <a className="forgot-email" href="Registration">
+                More ways to Signin
+              </a>
+            </div>
+
 
            <div className="buttonname">
             <Button

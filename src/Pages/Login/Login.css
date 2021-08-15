@@ -62,11 +62,14 @@
     margin-top: 5%;
     /* margin-left:27%; */
 }
-.fundoo-sign{
+.fundoosign{
     align-self: center;
+    margin-right: 20%;
+    font-size: 20px;
 }
-.Login-sign{
-    box-sizing: border-box;
+.Loginsign{
+     
+ box-sizing: border-box;
     font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
 font-size: 24px;
 font-weight: 400;
@@ -75,27 +78,23 @@ line-height :31.9992px;
 text-align :center;
 text-indent: -1px;
 width: auto;
--webkit-tap-highlight-color: rgba(0, 0, 0,);
+-webkit-tap-highlight-color: rgba(0, 0, 0,); 
 }
-.heading-sign{
-    box-sizing: border-box;
-color: rgb(32, 33, 36);
-font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
-font-size: 24px;
-font-weight: 400;
-height :auto;
-line-height :31.9992px;
-text-align :center;
-text-indent: -1px;
-width: auto;
--webkit-tap-highlight-color: rgba(0, 0, 0,);
+.headingsign{
+  font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    color:rgb(47, 48, 49);;
+    margin-right: 20%;
 }
-.heading-account{
+.headingaccount{
     font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
     font-size: 20px;
     font-weight: 300;
     text-align: center;
     color:rgb(47, 48, 49);;
+    margin-right: 20%;
 }
 .forgot-email{
     font-size: 14px;
@@ -142,16 +141,13 @@ width: auto;
         align-items:flex-start;
     }
 
-    .heading-sign,
-    .heading-account {
+    .headingsign,
+    .headingaccount {
         margin-bottom: 15px;
     }
 }
-.next{
-    margin-left: 85%;
-      bottom:40px;
-    
-}
+  
+
 @media only screen and (max-width:250px) { 
 
     .last-sec {
@@ -160,4 +156,8 @@ width: auto;
         padding-top: 10%;
     }
 
+}
+.next{
+    margin-left:80%;
+      bottom:80px; 
 }
