@@ -67,9 +67,14 @@ export class ForgotPassword extends Component {
                    
                 </div>
                 <br></br><br></br>
+                <div className="forgotemail-link">
+              <a className="forgot-email" href="Registration">
+                Try another way
+              </a>
+            </div>
                 <div className="sendbtn">
                     <Button variant="contained" className="next" color="primary" onClick={this.Send}>
-                        Send
+                        Next
                     </Button>
                 </div>
             </div>
