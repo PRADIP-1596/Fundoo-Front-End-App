@@ -3,7 +3,12 @@ import './ForgotPassword.css';
 import TextField from '@material-ui/core/TextField';
 // import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
-import {  Router, Route, Switch } from "react-router-dom";
+// import {  Router, Route, Switch } from "react-router-dom";
+import UserService from "../../Service/UserService";
+
+const service = new UserService();
+
+
 export class ForgotPassword extends Component {
 
     constructor(props) {
@@ -28,14 +33,34 @@ export class ForgotPassword extends Component {
            return isError = errors.usernameError
    
        }
-   
        Send = () => {
-           var isValidated = this.validation();
-           if(!isValidated){
-               console.log("validation successfull");
-           }
-       }
-   
+        var isValidated = this.validation();
+        if(!isValidated){
+            console.log("validation successfull");
+            let data = {
+          
+              // "firstName": this.state.fName,
+              // "lastName": this.state.lName,
+              // "email":  this.state.email,
+              "service": "advance",
+              "password":this.state.username,
+            //   "password":this.state.confirm,
+            };
+    
+            service
+            .ForgetPassword(data)
+            .then((res) => {
+              console.log(res);
+              localStorage.setItem("token",res.data);
+              console.log(res.data);
+              this.props.history.push("/Login");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      }
+    
        change = e => {
            this.setState({
              [e.target.name]: e.target.value

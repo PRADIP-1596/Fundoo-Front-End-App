@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 // import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
 import Login from './Pages/Login/Login';
@@ -7,6 +7,7 @@ import Registration from './Pages/Regisration/Registration';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import { Resetpassword } from "./Pages/ResetPassword/Resetpassword";
+// import Dashboard from './Pages/Dashboard/DashBoard';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route exact path="/Registration" component={Registration}></Route>
           <Route exact path="/Resetpassword" component={Resetpassword}></Route>
           <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>
-    
+    {/* <Dashboard/> */}
           {/* <Route
             exact
             path="/forgotpassword"

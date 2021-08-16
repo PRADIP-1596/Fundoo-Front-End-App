@@ -3,9 +3,11 @@ import TextField from "@material-ui/core/TextField";
 // import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button"
 import './Login.css';
-import {  Router, Route, Switch } from "react-router-dom";
+// import {  Router, Route, Switch } from "react-router-dom";
 //  import { Link } from "react-router-dom";
- 
+import UserService from "../../Service/UserService";
+
+const service = new UserService();
 
 export class Login extends Component {
 
@@ -42,7 +44,23 @@ Next = () => {
     if(!isValidated){
         console.log("validation successfull");
     }
+    let data = {
+      "email": this.state.email,
+      "password": this.state.password,
+    };
+    service
+      .Login(data)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data);
+        this.props.history.push("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  
 }
+
 showPassword = () => {
   console.log("showpassword");
   if (this.state.textType === "password") {
@@ -55,6 +73,35 @@ showPassword = () => {
     });
   }
 };
+
+Next = () => {
+  var isValidated = this.validation();
+  if(!isValidated){
+      console.log("validation successfull");
+      let data = {
+    
+        // "firstName": this.state.fName,
+        // "lastName": this.state.lName,
+        "email":this.state.email,
+        "service": "advance",
+        "password":this.state.password,
+      };
+ 
+      service
+      .Login(data)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data);
+        console.log(res.data);
+        this.props.history.push("/fundooKeep/notes");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
+
 
 change = e => {
     this.setState({
