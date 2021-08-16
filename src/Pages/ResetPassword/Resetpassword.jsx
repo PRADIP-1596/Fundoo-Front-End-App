@@ -3,7 +3,11 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 import './Resetpassword.css';
-import {  Router, Route, Switch } from "react-router-dom";
+// import {  Router, Route, Switch } from "react-router-dom";
+
+import UserService from "../../Service/UserService";
+
+const service = new UserService();
 export class Resetpassword extends Component {
     constructor(props) {
         super(props);
@@ -32,10 +36,31 @@ export class Resetpassword extends Component {
     }
 
     Reset = () => {
-        var isValidated = this.validation();
-        if(!isValidated){
-            console.log("validation successfull");
-        }
+      var isValidated = this.validation();
+      if(!isValidated){
+          console.log("validation successfull");
+          let data = {
+        
+            // "firstName": this.state.fName,
+            // "lastName": this.state.lName,
+            // "email":  this.state.email,
+            "service": "advance",
+            "password":this.state.password,
+            "password":this.state.confirm,
+          };
+     
+          service
+          .ResetPassword(data)
+          .then((res) => {
+            console.log(res);
+            localStorage.setItem("token",res.data);
+            console.log(res.data);
+            this.props.history.push("/Login");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     }
 
     change = e => {

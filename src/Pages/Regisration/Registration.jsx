@@ -7,7 +7,10 @@
  import FormHelperText from "@material-ui/core/FormHelperText";
 //  import React, { Component } from "react";
 //  import { Link } from "react-router-dom";
- import {  Router, Route, Switch } from "react-router-dom";
+//  import {  Router, Route, Switch } from "react-router-dom";
+  import UserService from "../../Service/UserService";
+
+ const service = new UserService();
 
 export class Registration extends Component {
     constructor(props) {
@@ -43,7 +46,7 @@ export class Registration extends Component {
       changeHandler = (e) => {
         if (e.target.name === "email") {
           this.setState({
-            [e.target.name]: e.target.value + "@gmail.com",
+            [e.target.name]: e.target.value  ,
           });
         } else {
           this.setState({
@@ -72,15 +75,36 @@ export class Registration extends Component {
         var isValidated = this.validation();
         if(!isValidated){
             console.log("validation successfull");
+            let data = {
+          
+              "firstName": this.state.fName,
+              "lastName": this.state.lName,
+              "email":  this.state.email,
+              "service": "advance",
+              "password":this.state.password,
+            };
+       
+            service
+            .Registration(data)
+            .then((res) => {
+              console.log(res);
+              localStorage.setItem("token", res.data);
+              console.log(res.data);
+              this.props.history.push("/Login");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
-    }
-
-    change = e => {
+    
+      
+      }
+    
+      change = e => {
         this.setState({
           [e.target.name]: e.target.value
         });
       }
-
     
     render() {
         return (
