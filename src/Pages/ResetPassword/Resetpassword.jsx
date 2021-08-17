@@ -41,9 +41,6 @@ export class Resetpassword extends Component {
           console.log("validation successfull");
           let data = {
         
-            // "firstName": this.state.fName,
-            // "lastName": this.state.lName,
-            // "email":  this.state.email,
             "service": "advance",
             "password":this.state.password,
             "password":this.state.confirm,

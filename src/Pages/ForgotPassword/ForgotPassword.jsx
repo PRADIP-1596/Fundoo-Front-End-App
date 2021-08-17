@@ -39,12 +39,9 @@ export class ForgotPassword extends Component {
             console.log("validation successfull");
             let data = {
           
-              // "firstName": this.state.fName,
-              // "lastName": this.state.lName,
-              // "email":  this.state.email,
               "service": "advance",
               "password":this.state.username,
-            //   "password":this.state.confirm,
+            
             };
     
             service

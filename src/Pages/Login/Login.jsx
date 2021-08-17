@@ -43,21 +43,22 @@ Next = () => {
     var isValidated = this.validation();
     if(!isValidated){
         console.log("validation successfull");
+        let data = {
+          "email": this.state.email,
+          "password": this.state.password,
+        };
+        service
+          .Login(data)
+          .then((res) => {
+            console.log(res);
+            localStorage.setItem("token", res.data);
+            this.props.history.push("/login");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     }
-    let data = {
-      "email": this.state.email,
-      "password": this.state.password,
-    };
-    service
-      .Login(data)
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data);
-        this.props.history.push("/login");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  
   
 }
 
