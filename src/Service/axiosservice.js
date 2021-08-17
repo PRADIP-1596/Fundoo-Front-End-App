@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 class axiosservice {
   postMethod = (url, data, isHeaderRequired) => {
     return axios.post(url, data, isHeaderRequired);

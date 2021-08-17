@@ -29,7 +29,9 @@ import ViewIcon from "@material-ui/icons/ViewStreamOutlined";
 import AppsIcon from "@material-ui/icons/Apps";
 import AccountIcon from "@material-ui/icons/AccountCircleOutlined";
 import { Button, Paper, Popper } from "@material-ui/core";
-
+// import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from '@material-ui/icons/Close';
+import Archieve from "../../Component/Archieve/Archieve";
 import "./DashBoard.css";
 
 
@@ -168,10 +170,10 @@ const useStyles = makeStyles((theme) => ({
 
 function DashBoard(props) {
   const classes = useStyles();
-  // const theme = useTheme();
+  const theme = useTheme();
   // const history = useHistory();
   const [open, setOpen] = React.useState(false);
-  // const [pageTitle, setTitle] = React.useState("Keep");
+  const [pageTitle, setTitle] = React.useState("Keep");
   const [openProfile, setProfile] = React.useState(false);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -193,37 +195,12 @@ function DashBoard(props) {
   const handleArchiveOpen = () => {
     setOpen(open ? false : true);
     props.dispatch({ type: "Archive" });
-    // history.push("/fundooKeep/archive");
+    // history.push("//archive");
   };
-  const handleNotesOpen = () => {
-    setOpen(open ? false : true);
-    props.dispatch({ type: "Notes" });
-    // history.push("/fundooKeep/notes");
-  };
-  // const handleLogout = () => {
-  //   service
-  //     .LogOut()
-  //     .then((res) => {
-  //       console.log("logged out successfully");
-  //       localStorage.removeItem("token");
-  //       history.push("/signin");
-  //     })
-  //     .catch((err) => {
-  //       console.log("logout", err);
-  //     });
-  // };
 
-  // React.useEffect(() => {
-  //   console.log("we are getting redux", props.changeTitle);
-  //   let title = props.changeTitle;
-  //   setTitle(title);
-  //   // console.log("we are getting redux1", props.abc);
-  //   // console.log("we are getting redux2", props.searchData);
-  // }, [props]);
+ 
 
-  const onChange = (e) => {
-    props.dispatch({ type: "Search", searchData: e.target.value });
-  };
+  
 
   return (
     <div className={classes.root}>
@@ -250,18 +227,27 @@ function DashBoard(props) {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
+              <div class="close">
+              {/* <CloseIcon/> */}
+              </div>
+              
               <InputBase
+              placeholder="Search…"
                 className="search-bar"
                 placeholder="Search…"
+              
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
-                inputProps={{ "aria-label": "search" }}
-                onChange={onChange}
+                // inputProps={{ "aria-label": "search" }}
+                // onChange={onChange}
               />
+              
+              
+            
             </div>
-
+              
             <RefreshIcon className="ref-icon" />
             <ViewIcon className="view-icon" />
             <SettingsIcon className="setting-icon" />
@@ -294,7 +280,7 @@ function DashBoard(props) {
                     <NotesIcon
                       className="list-items"
                       aria-label="open drawer"
-                      onClick={handleNotesOpen}
+                      // onClick={}
                       edge="start"
                     />
                   ) : index === 1 ? (
@@ -370,13 +356,7 @@ function DashBoard(props) {
     </div>
   );
 }
-function mapStateToProps(state) {
-  console.log(state);
-  return {
-    // changeTitle: state.ChangeTitleReducer.changeTitle,
-    // abc: state.abcReducer.abc,
-    // searchData: state.searchBarReducer.searchData,
-  };
-}
+
+
 
 export default DashBoard;

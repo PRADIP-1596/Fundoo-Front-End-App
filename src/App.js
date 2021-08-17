@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import { Resetpassword } from "./Pages/ResetPassword/Resetpassword";
  import Dashboard from './Pages/Dashboard/DashBoard';
+// import Notes from './Component/Notes';
 
 
 function App() {
@@ -15,12 +16,14 @@ function App() {
     
      <div className="App">
       <Router>
-      {/* <Route exact path="/" component={Login}></Route> */}
-        <Switch>
-          {/* <Route exact path="/Registration" component={Registration}></Route>
+       {/* <Route exact path="/" component={Login}></Route>  */}
+          <Switch>
+        {/*  <Route exact path="/Registration" component={Registration}></Route>
           <Route exact path="/Resetpassword" component={Resetpassword}></Route>
-          <Route exact path="/ForgotPassword" component={ForgotPassword}></Route> */}
-    <Dashboard/>
+          <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>   */}
+     <Dashboard/> 
+
+     {/* <Notes/> */}
           {/* <Route
             exact
             path="/forgotpassword"
