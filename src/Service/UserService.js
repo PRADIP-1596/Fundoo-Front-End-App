@@ -12,10 +12,10 @@ const config = {
 class UserService {
     Registration = (data) => {
         console.log("registration here");
-        return axiosservice.postMethod(`${baseUrl}/user/userSignUp`, data , config)
+        return axiosservice.postMethod(`${baseUrl}/user/userSignUp`, data )
     }
     Login = (data) => {
-        return axiosservice.postMethod(`${baseUrl}/user/login`, data, config)
+        return axiosservice.postMethod(`${baseUrl}/user/login`, data)
     }
     ForgetPassword = (data) => {
         return axiosservice.postMethod(`${baseUrl}/user/reset`,data, config)
