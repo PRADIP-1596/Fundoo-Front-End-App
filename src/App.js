@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import { Resetpassword } from "./Pages/ResetPassword/Resetpassword";
  import Dashboard from './Pages/Dashboard/DashBoard';
-import CreateNote from './Component/CreateNote/CreateNote';
+// import CreateNote from './Component/CreateNote/CreateNote';
 // import Notes from './Component/Notes';
 
 
@@ -17,11 +17,12 @@ function App() {
     
      <div className="App">
       <Router>
-       {/* <Route exact path="/" component={Login}></Route>  */}
+      
           <Switch>
-        {/*  <Route exact path="/Registration" component={Registration}></Route>
+             <Route exact path="/" component={Login}></Route>  
+          <Route exact path="/Registration" component={Registration}></Route>
           <Route exact path="/Resetpassword" component={Resetpassword}></Route>
-          <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>   */}
+          <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>  
      <Dashboard/> 
      {/* <CreateNote/> */}
 

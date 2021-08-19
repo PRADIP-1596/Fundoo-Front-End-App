@@ -31,9 +31,9 @@ import AccountIcon from "@material-ui/icons/AccountCircleOutlined";
 import { Button, Paper, Popper } from "@material-ui/core";
 // import CloseIcon from "@material-ui/icons/Close";
 import CloseIcon from '@material-ui/icons/Close';
-import Archieve from "../../Component/Archieve/Archieve";
+// import Archieve from "../../Component/Archieve/Archieve";
 import "./DashBoard.css";
-import CreateNote from "../../Component/CreateNote/CreateNote";
+// import CreateNote from "../../Component/CreateNote/CreateNote";
 
 const drawerWidth = 240;
 
