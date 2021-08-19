@@ -34,7 +34,10 @@ import CloseIcon from '@material-ui/icons/Close';
 // import Archieve from "../../Component/Archieve/Archieve";
 import "./DashBoard.css";
 // import CreateNote from "../../Component/CreateNote/CreateNote";
-
+import Notes from "../KeepComponent/Notes/Notes";
+import ProtectedRouter from "../KeepComponent/ProtectedRoute/ProtectedRoute";
+// import Notes from './Pages/Notes/Notes';
+// import Notes from './Pages/KeepComponent/Notes/Notes.jsx';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -187,16 +190,8 @@ function DashBoard(props) {
     setOpen(open ? false : true);
   };
 
-  const handleTrashOpen = () => {
-    setOpen(open ? false : true);
-    props.dispatch({ type: "Trash" });
-    // history.push("/fundooKeep/trash");
-  };
-  const handleArchiveOpen = () => {
-    setOpen(open ? false : true);
-    props.dispatch({ type: "Archive" });
-    // history.push("//archive");
-  };
+
+ 
 
  
 
@@ -302,14 +297,14 @@ function DashBoard(props) {
                     <ArchiveIcon
                       className="list-items"
                       aria-label="open drawer"
-                      onClick={handleArchiveOpen}
+                      // onClick={handleArchiveOpen}
                       edge="start"
                     />
                   ) : (
                     <TrashIcon
                       className="list-items"
                       aria-label="open drawer"
-                      onClick={handleTrashOpen}
+                      // onClick={handleTrashOpen}
                       edge="start"
                     />
                   )}
