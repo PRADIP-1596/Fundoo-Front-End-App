@@ -12,10 +12,6 @@ import CreateNote from './Pages/KeepComponent/CreateNote/CreateNote';
 import DisplayNotes from './Pages/KeepComponent/DisplayNotes/DisplayNotes';
 import IconButton from './Pages/KeepComponent/IconButton/IconButton';
 import Notes from './Pages/KeepComponent/Notes/Notes';
-// import Notes from './Pages/KeepComponent/Notes/Notes';
-// import CreateNote from './Pages/Keepcomponent/CreateNote/CreateNote';
-// import CreateNote from './Component/CreateNote/CreateNote';
-// import Notes from './Component/Notes';
 
 
 function App() {
@@ -29,8 +25,8 @@ function App() {
           <Route exact path="/Registration" component={Registration}></Route>
           <Route exact path="/Resetpassword" component={Resetpassword}></Route>
           <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>  
-     <Dashboard/> 
-      {/* <Notes/> */}
+     {/* <Dashboard/>  */}
+      <Notes/>
       {/* <Archieve/> */}
         </Switch>
       </Router>

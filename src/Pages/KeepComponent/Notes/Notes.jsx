@@ -2,10 +2,10 @@ import React, { Component } from "react";
 //  import { connect } from "react-redux";
 import CreateNote from "../CreateNote/CreateNote.jsx";
 import DisplayNotes from "../DisplayNotes/DisplayNotes";
-
+import DashBoard from "../../Dashboard/DashBoard.jsx";
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import { Route, Switch, useHistory } from "react-router";
-import ProtectedRouter from "../ProtectedRoute/ProtectedRoute";
+// import ProtectedRouter from "../ProtectedRoute/ProtectedRoute";
 import IconButton from "../IconButton/IconButton";
 
 // import UserService from "../../Service/UserService";
@@ -26,20 +26,7 @@ class Notes extends Component {
   }
 
   getANote = () => {
-    // service
-    //   .GetNote()
-    //   .then((res) => {
-    //     let data = res.data.data.data;
-    //     let newnote = data.filter(
-    //       (i) => (i.isArchived || i.isDeleted) === false
-    //     );
-    //     this.setState({
-    //       notes: newnote.reverse(),
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+   
   };
 
   render() {
@@ -52,17 +39,6 @@ class Notes extends Component {
     return (
       <>
         <CreateNote get={this.getANote} notes={this.state.notes} />
-        <ProtectedRouter
-          exact
-          path="/fundooKeep/notes"
-          component={(props) => (
-            <DisplayNotes
-              {...props}
-              notes={filteredNotes}
-              get={this.getANote}
-            />
-          )}
-        ></ProtectedRouter>
       </>
     );
   }

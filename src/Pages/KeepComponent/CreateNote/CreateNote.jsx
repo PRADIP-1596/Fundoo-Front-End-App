@@ -68,22 +68,7 @@ export default class CreateNote extends React.Component {
    data.append("title", this.state.title);
     data.append("description", this.state.description);
 
-    if (this.state.color !== "") {
-      data.append("color", this.state.color);
-    }
-    if (this.state.isArchived !== "") {
-      data.append("isArchived", this.state.isArchived);
-    }
-    if (this.state.isDeleted !== "") {
-      data.append("isDeleted", this.state.isDeleted);
-    }
-    if (this.state.image !== "") {
-      data.append("file", this.state.image);
-    }
-    if (collab !== "") {
-      data.append("collaberators", JSON.stringify([collab]));
-    }
-
+   
    
   };
 
@@ -254,11 +239,6 @@ export default class CreateNote extends React.Component {
         </div>
         {/*,<----------------------------------- collaborator ------------------------------------------> */}
         <Dialog
-          className="collab-dialog-box"
-          open={this.state.collabOpen}
-          fullWidth
-          aria-labelledby="responsive-collab-dialog-title"
-          style={{ backgroundColor: "none", zIndex: 2 }}
         >
           <DialogTitle>Collaborators</DialogTitle>
           <Divider light />
@@ -268,10 +248,10 @@ export default class CreateNote extends React.Component {
                 <AccountIcon fontSize="large" className="owner-icon" />
                 <div>
                   <div classname="oname">
-                    <h3 className="owner-name">Shalini Pandey</h3>
+                    <h3 className="owner-name"></h3>
                     <span>(Owner)</span>
                   </div>
-                  <p className="owner-tag">shalu8mar@gmail.com</p>
+                  <p className="owner-tag"></p>
                 </div>
               </div>
             </div>
@@ -284,28 +264,15 @@ export default class CreateNote extends React.Component {
                 type="email"
                 className="collab-input"
                 placeholder="Person or email to share with"
-                onChange={this.handleSearchChange}
+                // onChange={this.handleSearchChange}
               />
             </div>
-            <Popper
-              open={this.state.openPopper}
-              anchorEl={this.state.anchorEl}
-              placement="bottom-start"
-              transition
-              style={{ zIndex: 20, marginTop: "450px", width: "250px" }}
-            >
-              <Paper
-                className="collab-popper"
-                style={{ padding: "10px", boxShadow: "1px 1px 5px #888" }}
-              >
-                {this.searchingList()}
-              </Paper>
-            </Popper>
+           
           </DialogContent>
           <Divider light />
           <DialogActions
-            className="cancelsave-btns"
-            style={{ backgroundColor: "#ebebeb", height: "50px" }}
+    
+          
           >
             <div>
               <button className="action-btn" onClick={this.onCancel}>

@@ -35,7 +35,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import "./DashBoard.css";
 // import CreateNote from "../../Component/CreateNote/CreateNote";
 import Notes from "../KeepComponent/Notes/Notes";
-import ProtectedRouter from "../KeepComponent/ProtectedRoute/ProtectedRoute";
+// import ProtectedRouter from "../KeepComponent/ProtectedRoute/ProtectedRoute";
 // import Notes from './Pages/Notes/Notes';
 // import Notes from './Pages/KeepComponent/Notes/Notes.jsx';
 const drawerWidth = 240;
@@ -267,6 +267,7 @@ function DashBoard(props) {
         style={{ position: "absolute", top: "55px" }}
       >
         <Divider />
+        
         <List>
           {["Notes","Reminders", "Edit labels", "Archive", "Trash"].map(
             (text, index) => (
