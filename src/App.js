@@ -8,7 +8,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import { Resetpassword } from "./Pages/ResetPassword/Resetpassword";
  import Dashboard from './Pages/Dashboard/DashBoard';
-// import Notes from './Component/Notes';
+import CreateNote from './Pages/KeepComponent/CreateNote/CreateNote';
+import DisplayNotes from './Pages/KeepComponent/DisplayNotes/DisplayNotes';
+import IconButton from './Pages/KeepComponent/IconButton/IconButton';
+import Notes from './Pages/KeepComponent/Notes/Notes';
 
 
 function App() {
@@ -16,21 +19,15 @@ function App() {
     
      <div className="App">
       <Router>
-       {/* <Route exact path="/" component={Login}></Route>  */}
+      
           <Switch>
-        {/*  <Route exact path="/Registration" component={Registration}></Route>
+             <Route exact path="/" component={Login}></Route>  
+          <Route exact path="/Registration" component={Registration}></Route>
           <Route exact path="/Resetpassword" component={Resetpassword}></Route>
-          <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>   */}
-     <Dashboard/> 
-
-     {/* <Notes/> */}
-          {/* <Route
-            exact
-            path="/forgotpassword"
-            component={ForgotPassword}
-          ></Route> */}
-          {/* <Route path="/resetpassword" component={ResetPassword}></Route>
-          <Route path="/fundooKeep" component={NotesContainer} /> */}
+          <Route exact path="/ForgotPassword" component={ForgotPassword}></Route>  
+     {/* <Dashboard/>  */}
+      <Notes/>
+      {/* <Archieve/> */}
         </Switch>
       </Router>
     </div>

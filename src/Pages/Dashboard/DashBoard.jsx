@@ -31,10 +31,13 @@ import AccountIcon from "@material-ui/icons/AccountCircleOutlined";
 import { Button, Paper, Popper } from "@material-ui/core";
 // import CloseIcon from "@material-ui/icons/Close";
 import CloseIcon from '@material-ui/icons/Close';
-import Archieve from "../../Component/Archieve/Archieve";
+// import Archieve from "../../Component/Archieve/Archieve";
 import "./DashBoard.css";
-
-
+// import CreateNote from "../../Component/CreateNote/CreateNote";
+import Notes from "../KeepComponent/Notes/Notes";
+// import ProtectedRouter from "../KeepComponent/ProtectedRoute/ProtectedRoute";
+// import Notes from './Pages/Notes/Notes';
+// import Notes from './Pages/KeepComponent/Notes/Notes.jsx';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -187,16 +190,8 @@ function DashBoard(props) {
     setOpen(open ? false : true);
   };
 
-  const handleTrashOpen = () => {
-    setOpen(open ? false : true);
-    props.dispatch({ type: "Trash" });
-    // history.push("/fundooKeep/trash");
-  };
-  const handleArchiveOpen = () => {
-    setOpen(open ? false : true);
-    props.dispatch({ type: "Archive" });
-    // history.push("//archive");
-  };
+
+ 
 
  
 
@@ -220,7 +215,9 @@ function DashBoard(props) {
             <Typography className={classes.title} variant="h6" Wrap>
               <div className={classes.keepIcon}>
                 <img src={KeepIcon} alt="keep-icon" className="keep-img" />
-                <p className="keep-wrd"></p>
+                <p className="keep-wrd">
+                  keep
+                </p>
               </div>
             </Typography>
             <div className={classes.search}>
@@ -240,8 +237,7 @@ function DashBoard(props) {
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
-                // inputProps={{ "aria-label": "search" }}
-                // onChange={onChange}
+         
               />
               
               
@@ -271,8 +267,9 @@ function DashBoard(props) {
         style={{ position: "absolute", top: "55px" }}
       >
         <Divider />
+        
         <List>
-          {["Notes", "Reminders", "Edit labels", "Archive", "Trash"].map(
+          {["Notes","Reminders", "Edit labels", "Archive", "Trash"].map(
             (text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon className={classes.icon}>
@@ -301,14 +298,14 @@ function DashBoard(props) {
                     <ArchiveIcon
                       className="list-items"
                       aria-label="open drawer"
-                      onClick={handleArchiveOpen}
+                      // onClick={handleArchiveOpen}
                       edge="start"
                     />
                   ) : (
                     <TrashIcon
                       className="list-items"
                       aria-label="open drawer"
-                      onClick={handleTrashOpen}
+                      // onClick={handleTrashOpen}
                       edge="start"
                     />
                   )}
@@ -320,6 +317,7 @@ function DashBoard(props) {
         </List>
         <Divider />
       </Drawer>
+      
 
       <div className="note-component">{props.children}</div>
       <Popper
