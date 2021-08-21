@@ -30,8 +30,8 @@ import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
 import CreateNote from '../CreateNotes/CreateNote'
-// import GetNote from '../GetNote/GetNote';
-// import ArchiveNotes from '../../pages/ArchiveNotes/Archive'
+import GetNote from '../GetNote/GetNote';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -147,7 +147,7 @@ function MiniDrawer(props) {
             case 'Notes':
                 break;
             case 'Archive':
-                props.history.push('/dashboard/archiveNotes');
+    
                 break;
             default:
                 break;
@@ -233,9 +233,9 @@ function MiniDrawer(props) {
                
                 <Router>
                     <Switch>
-                        {/* <Route exact path="/Dashboard" component={GetNote} ></Route> */}
+                        <Route exact path="/Dashboard" component={GetNote} ></Route>
                         <Route exact path="/Dashboard" component={CreateNote}></Route>
-                        {/* <Route path="/dashboard/archiveNotes" component={ArchiveNotes} ></Route> */}
+                    
                     </Switch>
                 </Router>
             </div>

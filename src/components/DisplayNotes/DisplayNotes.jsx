@@ -1,12 +1,15 @@
 import React from 'react';
 import Icons from '../Icons/Icon'
 import InputBase from '@material-ui/core/InputBase';
-import UserService from '../../service/Userservice'
+// import UserService from '../../service/Userservice'
 import Dialog from '@material-ui/core/Dialog';
-import Pin from '../../assets/pin.jpeg';
+// import Pin from '../../assets/pin.jpeg';
 
+import UserService from "../../Service/UserService";
 
 const service = new UserService();
+
+// const service = new UserService();
 
 export default class DisplayNotes extends React.Component {
     constructor(props) {
@@ -80,7 +83,8 @@ export default class DisplayNotes extends React.Component {
                         return (<div className="notebox" style={style}>
                             <div onClick={(e) => this.handleClickOpen(e, value)}>
                               <div className="inline1">  <h4 style={{width:'90%'}}>{value.title}</h4>
-                                <img src={Pin} alt=""/></div>
+                                {/* <img src={Pin} alt=""/> */}
+                                </div>
                                 <p>{value.description}</p></div>
                             <Icons Notes={value} SetColor={this.setColor} />                         
                         </div>)

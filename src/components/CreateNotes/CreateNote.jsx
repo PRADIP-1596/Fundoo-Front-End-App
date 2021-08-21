@@ -8,6 +8,10 @@ import Icons from '../Icons/Icon';
 
 // const service = new UserService();
 
+import UserService from "../../Service/UserService";
+
+const service = new UserService();
+
 
 export default class Notes extends React.Component {
     constructor(props) {
@@ -39,13 +43,13 @@ export default class Notes extends React.Component {
 
         } else {
             let token = localStorage.getItem('Token');
-            // service.addNote(data, token).then((data) => {
-            //    this.props.updateData();
+            service.AddNote (data, token).then((data) => {
+               this.props.updateData();
               
-            //     console.log(data);
-            // }).catch((error) => {
-            //         console.log(error)
-            //     })
+                console.log(data);
+            }).catch((error) => {
+                    console.log(error)
+                })
         }
     }
 
