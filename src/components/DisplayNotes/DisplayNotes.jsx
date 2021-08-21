@@ -8,7 +8,6 @@ import Dialog from '@material-ui/core/Dialog';
 import UserService from "../../Service/UserService";
 
 const service = new UserService();
-
 // const service = new UserService();
 
 export default class DisplayNotes extends React.Component {
@@ -73,7 +72,7 @@ export default class DisplayNotes extends React.Component {
     };
 
     render() {
-      
+
 
         return (
             <>
@@ -89,7 +88,7 @@ export default class DisplayNotes extends React.Component {
                             <Icons Notes={value} SetColor={this.setColor} />                         
                         </div>)
                     })}
-                   
+
                 </div>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <div className="dialogbox">
@@ -125,4 +124,4 @@ export default class DisplayNotes extends React.Component {
             </>
         )
     }
-}
+} 

@@ -1,7 +1,7 @@
 import React  from 'react'
 // import UserService from "../../service/Userservice";
 import CreateNote from '../CreateNotes/CreateNote'
-import DisplayNote from '../DisplayNotes/DisplayNotes'
+import DisplayNotes from '../DisplayNotes/DisplayNotes'
 
 // const service = new UserService()
 import UserService from "../../Service/UserService";
@@ -33,7 +33,8 @@ export default class getNote extends React.Component {
         return (
             <div>            
                 <CreateNote updateData={this.getNote} /> 
-
+                <DisplayNotes updateNote={this.props.getNote} 
+                          NotesArray={this.state.notes} /> 
             </div>
         )
     }

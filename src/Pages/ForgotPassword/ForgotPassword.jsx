@@ -14,56 +14,31 @@ export class ForgotPassword extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          
-            username: '',
-            usernameError: false,
-             
-           }
-       }
-   
-       validation = () => {
-           let isError = false;
-           const errors= this.state;
-           errors.usernameError= this.state.username=== '' ? true : false;
-           
-   
-           this.setState({
-               ...errors,
-           })
-           return isError = errors.usernameError
-   
-       }
-       Send = () => {
-        var isValidated = this.validation();
-        if(!isValidated){
-            console.log("validation successfull");
-            let data = {
-          
-              "service": "advance",
-              "password":this.state.username,
-            
-            };
-    
-            service
-            .ForgetPassword(data)
-            .then((res) => {
-              console.log(res);
-              localStorage.setItem("token",res.data);
-              console.log(res.data);
-              this.props.history.push("/Login");
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+            username: "",
+            password: "",
+            "show": false,
+            "snackmsg": ""
         }
-      }
-    
-       change = e => {
-           this.setState({
-             [e.target.name]: e.target.value
-           });
-         }
-   
+    }
+
+    Send = () => {
+        this.setState({ snackmsg: "valid email" })
+        this.setState({ show: true })
+        let data = {
+            "email": this.state.username,
+        }
+        service.ForgetPassword(data).then((result) => {
+            console.log(result);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    handleChange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+        this.setState({ [name]: value })
+    }
 
     render() {
         return (
@@ -84,7 +59,7 @@ export class ForgotPassword extends Component {
                     name="username"
                     variant="outlined"
                     fullWidth
-                    onChange={e => this.change(e)}
+                    onChange={e => this. handleChange(e)}
                     helperText={this.state.usernameError? "Enter Username" : ''}/>
                    
                 </div>
