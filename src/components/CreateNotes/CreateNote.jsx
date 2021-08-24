@@ -33,23 +33,26 @@ export default class Notes extends React.Component {
     handleDescription = (e) => {
         this.setState({ description: e.target.value })
     }
+
+    getcolor=(data)=>{
+        console.log(data)
+    }
     close = () => {
         let data = {
-            title: this.state.title,
-            description: this.state.description
+            "title": this.state.title,
+            "description": this.state.description
         }
         this.click();
         if (data.title === "" || data.description === "") {
 
         } else {
             let token = localStorage.getItem('Token');
-            service.AddNote (data, token).then((data) => {
-               this.props.updateData();
-              
+            service.addNote(data, token).then((data,) => {
+            this.props.updateData();
                 console.log(data);
             }).catch((error) => {
-                    console.log(error)
-                })
+                console.log(error);
+            })
         }
     }
 
@@ -84,7 +87,10 @@ export default class Notes extends React.Component {
                         />
                         <div>
                             <div className="enclose">
-                                 < Icons />
+                                 < Icons
+                                 getcolorfromicon={this.getcolor} 
+                                 
+                                 />
                                 <div class="inp">
                                     <input type="button" onClick={this.close} value="Close" />
                                 </div>

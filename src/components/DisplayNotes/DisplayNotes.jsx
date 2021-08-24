@@ -8,7 +8,6 @@ import Dialog from '@material-ui/core/Dialog';
 import UserService from "../../Service/UserService";
 
 const service = new UserService();
-// const service = new UserService();
 
 export default class DisplayNotes extends React.Component {
     constructor(props) {
@@ -18,43 +17,15 @@ export default class DisplayNotes extends React.Component {
             description: "",
             open: false,
             noteId: '',
-            color:null,
+            // color:null,
         })
     }
 
-    setColor=(colorValue)=>{
-
-        this.setState({ color : colorValue });
-
-    }
-
-    displayNote = (e) => {
-        e.stopPropagation();
-        let token = localStorage.getItem("Token");
-        let data = {
-            title: this.state.title,
-            description: this.state.description,
-            noteId: this.state.noteId,
-        }
-        console.log(data.noteId);
-        if (data.title != "" && data.description != "") {
-            service.displayNote(data, token).then((result) => {
-                this.props.displayNote();
-                { this.handleClose() }
-                console.log(result);
-            }).catch((err) => {
-                console.log(err);
-            })
-        }
-    }
-
-    handleDescription = (e) => {
-        this.setState({ description: e.target.value })
-    }
     handleTitle = (e) => {
         this.setState({ title: e.target.value })
-
+        this.setState({ description: e.target.value })
     }
+
     handleClickOpen = (e, value) => {
         e.stopPropagation();
         this.setState({
@@ -72,8 +43,6 @@ export default class DisplayNotes extends React.Component {
     };
 
     render() {
-
-
         return (
             <>
                 <div className="notess">
@@ -109,7 +78,7 @@ export default class DisplayNotes extends React.Component {
                             fullWidth
                             className="inputbas"
                             placeholder="  Title"
-                            onChange={this.handleDescription}
+                            onChange={this.handleTitle}
                             defaultValue={this.state.description}
                             inputProps={{ 'aria-label': 'Title ' }}
                         />

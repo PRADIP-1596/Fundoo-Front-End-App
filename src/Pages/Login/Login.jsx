@@ -92,7 +92,7 @@ Next = () => {
       .Login(data)
       .then((res) => {
         console.log(res);
-        localStorage.setItem("token", res.data);
+        localStorage.setItem("token", res.data.id);
         console.log(res.data);
         this.props.history.push("/fundooKeep/notes");
       })

@@ -16,15 +16,18 @@ export default class getNote extends React.Component {
         }
     }
     componentDidMount(){
-        // this.GetNote ()
+        this.GetNote();
     }
 
-    GetNote =()=>{
-        let token = localStorage.getItem('Token');
+    GetNote = () => {
         console.log('called');
-        service.getNote(token).then((res)=>{
-        this.setState({notes:res.data.data.data})
-        console.log(this.state.notes);
+        service.displayNote()
+        .then((res)=>{
+            console.log(res);
+            this.setState({notes:res.data.data.data})
+        })
+        .catch((err)=>{
+            console.log(err);
         })
     }
 

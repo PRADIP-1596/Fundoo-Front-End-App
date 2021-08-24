@@ -23,29 +23,14 @@ class UserService {
     ResetPassword = (data) => {
         return axiosservice.postMethod(`${baseUrl}/user/reset-password`,data,config)
     }
-    AddNote = (data) => {
-        let configFile = {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: localStorage.getItem("token"),
-            },
-          };
-        return axiosservice.postMethod(`${baseUrl}notes/addNotes`, data, configFile)
-    }
-    GetNote = () => {
-        let config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
-            }
-        }
-        return axiosservice.getMethod(`${baseUrl}notes/getNotesList`,  config)
-
-    }
-    
+    addNote = (data) => {
+        return axiosservice.postMethod(`${baseUrl}/notes/addNotes`,data,config);
+    };
+    displayNote = () => {
+        return axiosservice.getMethod(`${baseUrl}/notes/getNotesList`,config);
+    };
   
-   
-}   
+    }
 
 
 export default UserService

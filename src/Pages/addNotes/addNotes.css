@@ -1,0 +1,210 @@
+#active{
+    width: 600px;
+    min-height: auto;
+    padding: 20px;
+    display: flex;
+   flex-direction: column;
+   overflow: visible;
+   margin-top: -140px;
+  }
+  #cardMoreOption{
+   background-color: #fff;
+   border-width: 0;
+   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+   position: absolute;
+   -webkit-border-radius: 4px;
+   border-radius: 4px;
+   z-index: 5003;
+   width: 130px;
+  height: 82px;
+   margin-top: 122px;
+   margin-left: 95px;
+   font-size: 17px;
+ }
+ .inputBases{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+ }
+ #Label{
+   display: flex;
+   flex-direction: initial;
+ }
+ #cardMoreOptionss{
+   background-color: #fff;
+   border-width: 0;
+   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+   position: absolute;
+   -webkit-border-radius: 4px;
+   border-radius: 4px;
+    z-index: 5003;
+    width: 250px;
+   height: 113px;
+   margin-top: 140px;
+   margin-left: 230px;
+   font-size: 17px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;
+ }
+ #chip{
+   max-width: 187px;
+   margin: 5px;
+ }
+ #addLable{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   margin-top: 31px
+ }
+ #labelNote{
+   margin-right: 113px;
+ }
+  /* #inactive{
+    width: 600px;
+    height: 10px;
+    padding: 20px;
+     color: rgb(184, 183, 183);
+    border-color:  rgba($color:#F1F3F4, $alpha: 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -140px;
+    align-items: center;
+  } */
+
+  .textFieldContainer{
+    padding-top: 5px;
+    width: 98%;
+    height: 45px;
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ } 
+ #pin{
+   height: 37px;
+   overflow: visible;
+   width: 25px;
+ }
+ #unPin{
+   height: 37px;
+   overflow: visible;
+   width: 25px;
+ }
+ .textfield
+ {
+     border-style: none;
+     padding-right: 15px;
+     padding-left: 15px;
+     width: 100%;
+     font-size: x-large;
+     font-weight: bold;
+     overflow: visible;
+ }
+ .iconContainer{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 65%;
+ }
+ .icon{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-left: -13px;
+   margin-bottom: -10px;
+ }
+  .mainCard{
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 80px;
+   }
+  #buttonsss{
+   margin-right: 31px;
+   margin-left: 229px;
+   padding-bottom: 40px;
+  }
+ 
+  #NoteColor{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 150px;
+   height: 120px;
+  }
+  .palletColor{
+   width: 27px;
+   height: 27px;
+   margin:1px;
+   border-radius: 50%;
+  }
+  .palletColor:hover{
+   border: 2px solid black;
+ }
+  #pallet{
+   border-radius: 50%;
+  }
+  #cards{
+   width: 270px;
+   height: 270px;
+   display: flex;
+   position: absolute;
+   right: 8px;
+   top: 65px;
+   border-radius: 7px;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-direction: column;
+   z-index: 1000;
+   margin-top: 195px;
+   margin-right: 770px;
+  }
+  .reminderMe{
+   display: flex;
+   height: 73%;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 226px;
+  }
+  .Reminder{
+    background-color:darkblue;
+  }
+  .week{
+   display: flex;
+   justify-content: space-between;
+   width: 137px;
+ }
+ .arrowss{
+   display: flex;
+   justify-content: start;
+   width: 94%;
+   padding-top: 39px;
+   padding-bottom: 7px;
+ 
+ }
+ .time{
+     width: 101%;
+     display: flex;
+     justify-content: center;
+ }
+ .bor{
+   width: 100%;
+   border-bottom: groove;
+   border-width: 0.5px;
+ }
+ #cardss{
+   width: 270px;
+   height: 270px;
+ }
+  .Create{
+   display: inline-block;
+   margin-left: 7px;
+   max-width: 160px;
+   padding-top: 2px;
+   vertical-align: top;
+  }

@@ -229,12 +229,12 @@ function MiniDrawer(props) {
             
                     <input type="button" value="Sign Out" />
                 </div> : null}
-
+         
                
                 <Router>
                     <Switch>
-                        <Route exact path="/Dashboard" component={GetNote} ></Route>
-                        <Route exact path="/Dashboard" component={CreateNote}></Route>
+                        <Route exact path="/Dashboard" component={GetNote}></Route>
+                        {/* <Route exact path="/Dashboard" component={CreateNote}></Route> */}
                     
                     </Switch>
                 </Router>
