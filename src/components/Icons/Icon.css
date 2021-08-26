@@ -1,0 +1,32 @@
+.inlineicons{
+    width: 270px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:  7px 2px 0px;
+    opacity: 0.7;
+}
+.MuiSvgIcon-fontSizeSmall {
+    font-size: 1.25rem
+    !important;
+}.MuiSvgIcon-root {
+    fill: currentColor  !important;
+}
+.enclose{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.inp{
+    margin-right: 50px;
+    align-content: center;
+}
+.inp input{
+       margin-top: 5px;
+       height: 25px;
+       background: none;
+       border: none;
+}
+.color-pallet-wrapper {
+    display: inline !important;
+  }

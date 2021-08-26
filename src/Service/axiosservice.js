@@ -5,7 +5,9 @@ class axiosservice {
   postMethod = (url, data, isHeaderRequired) => {
     return axios.post(url, data, isHeaderRequired);
   };
+  
   getMethod = (url, data, isHeaderRequired) => {
+    console.log(data);
     return axios.get(url, data, isHeaderRequired);
   };
   deleteMethod = (url, isHeaderRequired) => {
