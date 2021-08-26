@@ -6,7 +6,12 @@
     padding:  7px 2px 0px;
     opacity: 0.7;
 }
-
+.MuiSvgIcon-fontSizeSmall {
+    font-size: 1.25rem
+    !important;
+}.MuiSvgIcon-root {
+    fill: currentColor  !important;
+}
 .enclose{
     display: flex;
     flex-direction: row;
@@ -23,6 +28,5 @@
        border: none;
 }
 .color-pallet-wrapper {
-    display: inline;
-    position: relative;
+    display: inline !important;
   }

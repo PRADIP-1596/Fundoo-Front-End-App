@@ -29,8 +29,10 @@ class UserService {
     displayNote = () => {
         return axiosservice.getMethod(`${baseUrl}/notes/getNotesList`,config);
     };
-  
-    }
+    SearchUserList = (data) => {
+        return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, config);
+    };
+}
 
 
 export default UserService

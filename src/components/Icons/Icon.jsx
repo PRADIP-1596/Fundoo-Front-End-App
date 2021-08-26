@@ -10,32 +10,27 @@ import RestoreFromTrashRoundedIcon from "@material-ui/icons/RestoreFromTrashRoun
 import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
 import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Popper from "@material-ui/core/Popper";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
 import DeleteOutlineRoundedIcon from "@material-ui/icons/DeleteOutlineRounded";
 import './Icon.css'
 import UserService from '../../Service/UserService'
-import SimplePopper from '../colorpopper/colorpopper';
+import ColorPalletPopper from '../colorpopper/colorpopper';
+import AddCollaborator from '../Collabarotors/Collabrator';
+import { Colorize } from '@material-ui/icons';
+// import collabrtor from '../collabarotors/collabarotors';
 const service = new UserService();
 
-export default function Icon() {
-  // useState hook allows us to use states in functional coponents
-  const [open, setOpen] = React.useState(false);
-
-  const handleToggle = () => {
-    // If the menu is open the it will close the menu
-    // setOpen(true);
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    setOpen(false);
-  };
+export default function Icon(props) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+};
+  
   const handleClickGetColor = (e, color) => { 
-    console.log(color);
+    console.log("color",color);
+    props.getcolorfromicon(color);
   }
+  
   return (
     <div className="icons-group">
       
@@ -44,18 +39,20 @@ export default function Icon() {
             <AddAlertOutlinedIcon fontSize="small" />
           </IconButton>
           <IconButton aria-label="Add colaborators">
-            <PersonAddOutlinedIcon fontSize="small" />
+            {/* <PersonAddOutlinedIcon fontSize="small" /> */}
+            <AddCollaborator handleClick={handleClick} />
           </IconButton>
 
           <div className="color-pallet-wrapper">
-            <IconButton aria-label="Add colour" onClick={handleToggle}>
+            {/* <IconButton aria-label="Add colour" onClick={handleToggle}>
               <PaletteOutlinedIcon fontSize="small" />
             </IconButton>
             <SimplePopper
               open={open}
               handleClose={handleClose}
               handleClickGetColor={handleClickGetColor}
-            />
+            /> */}
+            <ColorPalletPopper handleClickGetColor={handleClickGetColor} />
           </div>
 
           <IconButton aria-label="Add image">
@@ -192,4 +189,4 @@ export default function Icon() {
 //         </>
 //       )
 //     }
-// }
+// } 
