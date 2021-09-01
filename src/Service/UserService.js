@@ -32,7 +32,11 @@ class UserService {
     SearchUserList = (data) => {
         return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, config);
     };
+    Archievedatadetails = (data) => {
+        return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
+    };
 }
+
 
 
 export default UserService

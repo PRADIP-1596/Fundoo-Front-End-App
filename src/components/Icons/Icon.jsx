@@ -15,6 +15,7 @@ import './Icon.css'
 import UserService from '../../Service/UserService'
 import ColorPalletPopper from '../colorpopper/colorpopper';
 import AddCollaborator from '../Collabarotors/Collabrator';
+import ArchievedNote from '../ArchieveNotes/ArchievedNotes';
 import { Colorize } from '@material-ui/icons';
 // import collabrtor from '../collabarotors/collabarotors';
 const service = new UserService();
@@ -30,7 +31,10 @@ export default function Icon(props) {
     console.log("color",color);
     props.getcolorfromicon(color);
   }
-  
+  const noteArchived = (e) => { 
+    // console.log("color",color);
+    props.data(e);
+  }
   return (
     <div className="icons-group">
       
@@ -52,7 +56,7 @@ export default function Icon(props) {
               handleClose={handleClose}
               handleClickGetColor={handleClickGetColor}
             /> */}
-            <ColorPalletPopper handleClickGetColor={handleClickGetColor} />
+            <ColorPalletPopper handleClickGetColor={handleClickGetColor}  />
           </div>
 
           <IconButton aria-label="Add image">
@@ -60,7 +64,8 @@ export default function Icon(props) {
           </IconButton>
 
           <IconButton aria-label="Archive">
-            <ArchiveOutlinedIcon fontSize="small" />
+            {/* <ArchiveOutlinedIcon noteArchived={noteArchived}/> */}
+            <ArchievedNote data={props.data}  newData = {props.getnotes}/>
           </IconButton>
         </div>
     </div>

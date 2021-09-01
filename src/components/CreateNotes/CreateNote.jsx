@@ -166,6 +166,7 @@ export default class Notes extends React.Component {
                                  getcolorfromicon={this.getcolor} 
                                  
                                  />
+                                
                                 <div class="inp">
                                     <input type="button" onClick={this.close} value="Close" />
                                 </div>
