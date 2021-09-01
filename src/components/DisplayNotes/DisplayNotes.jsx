@@ -89,6 +89,8 @@ export default class DisplayNotes extends React.Component {
                                 </div>
                             </div>
                     </div>
+
+                    
                 </Dialog>
             </>
         )

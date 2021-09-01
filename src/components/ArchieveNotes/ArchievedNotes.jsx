@@ -1,53 +1,44 @@
-import React from 'react'
-import { ListItemIcon, Tooltip, Snackbar } from '@material-ui/core'
-import ArchiveIcon from '@material-ui/icons/Archive';
-// import { archived } from '../Service/Service'
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useEffect } from "react";
+// import "./archiveStyles.scss";
+// import DisplayNotes from "../displayNote/displayNote";
+// import NoteService from "../../services/noteService";
+import DisplayNotes from "../DisplayNotes/DisplayNotes";
+import ArchievedNote from "./ArchieveNotes.css";
+import UserService from "../../Service/UserService";
+const service = new UserService();
 
-import UserService from "../../Service/UserService"; //import the service from service folder 
-const service = new UserService();               //to create an object as userservice part
+// const Service = new NoteService();
 
-const useStyles = makeStyles((theme) => ({
-  snackbar: {
-    [theme.breakpoints.down('xs')]: {
-      bottom: 90,
-    },
-  },
-}));
-//declared the archievenote functions 
-export default function ArchievedNote(props) {
-    const classes = useStyles();
-    const [snackbar, setSnackbar] = React.useState(false);
-    const [snackbarMsg, setSnackbarMsg] = React.useState("");     //set the react hooks 
+export default function Trash(props) {
+  const [notes, setNotes] = React.useState([]);
 
-    const snackbarClose = () => {
-        setSnackbar(false);
-      }
+  const handleClickArchive  = (e,value) => {
+    props.handleClickArchive (e, value);
+  }
 
-    const noteArchived = () => {
-       
-        service.Archievedatadetails()    //declared the service parts 
-            .then(response => {
-                setSnackbar(true);
-                setSnackbarMsg(response.data.message);
-                props.newData();
-            }).catch(error => {
-                console.log( error) //handled the error msg 
-            })
-    }
-
-    return (
-        <ListItemIcon>
-            <Tooltip title="Archive">
-                <ArchiveIcon onClick={() => noteArchived(props.data)}></ArchiveIcon></Tooltip>
-                <Snackbar
-              open={snackbar}
-              autoHideDuration={4000}
-              onClose={snackbarClose}
-              message={snackbarMsg}
-            //   className={classes.snackbar}
-            />
-        </ListItemIcon>
-        
-    )
+  const displayNote = () => {
+    const token = localStorage.getItem("token");
+    service.archiveNotes(token)
+      .then((noteData) => {
+        let data = noteData.data.data.data;
+        //filter data
+        let newArray = data.filter(function (e) {
+          return e.isArchived == true && e.isDeleted == false;
+        });
+        setNotes(newArray);
+      })
+      .catch((error) => {
+        console.log("Data fetch error in archives: ", error);
+      });
+  };
+  useEffect(() => {
+    displayNote();
+  }, []);
+  return (
+    <div className="dashboard-notes-container">
+      <div className="display-note-container">
+        <DisplayNotes notes={notes} displayNote={displayNote} />
+      </div>
+    </div>
+  );
 }

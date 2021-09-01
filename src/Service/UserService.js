@@ -32,9 +32,12 @@ class UserService {
     SearchUserList = (data) => {
         return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, config);
     };
-    Archievedatadetails = (data) => {
+    archiveNotes = (data) => {
         return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
     };
+    // archiveNotes = (data, token) => {
+    //     return axios.postMethod(`${this.baseURL}notes/archiveNotes`, data, { headers: {"Authorization" : token} });
+    // }
 }
 
 
