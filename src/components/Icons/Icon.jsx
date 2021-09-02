@@ -18,17 +18,25 @@ import AddCollaborator from '../Collabarotors/Collabrator';
 import ArchievedNote from '../ArchieveNotes/ArchievedNotes';
 import { Colorize } from '@material-ui/icons';
 
+import ArchieveNotes from '../ArchieveNotes/ArchievedNotes';
+import  Alert from  '../Alert/Alert'
+
 
 
 
 export default function Icon(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorE2, setAnchorE2] = React.useState(null);
   
-  const handleClick = event => {
+  const handleClickarchieveopen = event => {
     setAnchorEl(event.currentTarget);
 };
-
- 
+const handleClick = event => {
+  setAnchorEl(event.currentTarget);
+};
+const handleClick2 = event => {
+  setAnchorE2(event.currentTarget);
+};
   
   const handleClickGetColor = (e, color) => { 
     console.log("color",color);
@@ -36,7 +44,7 @@ export default function Icon(props) {
   }
   const handleClickArchive = (e,value) => { 
   console.log("detailsarchieveelements",value);
-  props. getarchieveicon(value)
+  // props. getarchieveicon(value)
     
   }
   return (
@@ -44,11 +52,17 @@ export default function Icon(props) {
        
         <div className="icons-group">
           <IconButton aria-label="Remind me">
-            <AddAlertOutlinedIcon fontSize="small" />
+            {/* <AddAlertOutlinedIcon fontSize="small" /> */}
+            {/* <AddCollaborator handleClick={handleClick} /> */}
+            <Alert  function={handleClick2} />
           </IconButton>
           <IconButton aria-label="Add colaborators">
             {/* <PersonAddOutlinedIcon fontSize="small" /> */}
             <AddCollaborator handleClick={handleClick} />
+          </IconButton>
+          <IconButton aria-label="Archive">
+            {/* <PersonAddOutlinedIcon fontSize="small" /> */}
+            <ArchieveNotes  handleClick={handleClick} />
           </IconButton>
 
           <div className="color-pallet-wrapper">
@@ -68,13 +82,6 @@ export default function Icon(props) {
           </IconButton>
 
           <IconButton aria-label="Archive">
-        
-
-          <IconButton aria-label="Archive" onClick={handleClickArchive}>
-              <ArchiveOutlinedIcon fontSize="small" />
-            </IconButton>
-            {/* <ArchiveOutlinedIcon noteArchived={noteArchived}/> */}
-            {/* <ArchievedNote data={props.data}  newData = {props.getnotes}/> */}
           </IconButton>
         </div>
     </div>

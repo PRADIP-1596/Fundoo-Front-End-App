@@ -35,6 +35,9 @@ class UserService {
     archiveNotes = (data) => {
         return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
     };
+    //  = (data) => {
+    //     return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
+    // }
     // archiveNotes = (data, token) => {
     //     return axios.postMethod(`${this.baseURL}notes/archiveNotes`, data, { headers: {"Authorization" : token} });
     // }
