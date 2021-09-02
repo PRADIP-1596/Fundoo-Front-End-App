@@ -1,9 +1,8 @@
 import React from 'react';
 import Icons from '../Icons/Icon'
 import InputBase from '@material-ui/core/InputBase';
-// import UserService from '../../service/Userservice'
 import Dialog from '@material-ui/core/Dialog';
-// import Pin from '../../assets/pin.jpeg';
+
 
 import UserService from "../../Service/UserService";
 
