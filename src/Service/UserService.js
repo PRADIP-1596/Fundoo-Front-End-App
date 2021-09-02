@@ -35,6 +35,12 @@ class UserService {
     archiveNotes = (data) => {
         return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
     };
+
+    TrashNotes = (data) => {
+        return axiosservice.postMethod(`${baseUrl}/notes/trashNotes`, data, config);
+    };
+    
+
     //  = (data) => {
     //     return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
     // }

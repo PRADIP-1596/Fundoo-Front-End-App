@@ -103,8 +103,8 @@ class SimplePopover extends React.Component {
   }
 }
 
-SimplePopover.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// SimplePopover.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
 export default withStyles(styles)(SimplePopover);

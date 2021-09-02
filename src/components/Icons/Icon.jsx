@@ -12,21 +12,26 @@ import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import DeleteOutlineRoundedIcon from "@material-ui/icons/DeleteOutlineRounded";
 import './Icon.css'
+
+import Trash from '../Trash/Trash'
 import UserService from '../../Service/UserService'
 import ColorPalletPopper from '../colorpopper/colorpopper';
 import AddCollaborator from '../Collabarotors/Collabrator';
 import ArchievedNote from '../ArchieveNotes/ArchievedNotes';
 import { Colorize } from '@material-ui/icons';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 import ArchieveNotes from '../ArchieveNotes/ArchievedNotes';
 import  Alert from  '../Alert/Alert'
-
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 
 export default function Icon(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorE2, setAnchorE2] = React.useState(null);
+  const [snackbarMsg, setSnackbarMsg] = React.useState("");
+
   
   const handleClickarchieveopen = event => {
     setAnchorEl(event.currentTarget);
@@ -37,7 +42,9 @@ const handleClick = event => {
 const handleClick2 = event => {
   setAnchorE2(event.currentTarget);
 };
-  
+const noteTrash = event => {
+  setAnchorE2(event.currentTarget);
+};
   const handleClickGetColor = (e, color) => { 
     console.log("color",color);
     props.getcolorfromicon(color);
@@ -64,16 +71,12 @@ const handleClick2 = event => {
             {/* <PersonAddOutlinedIcon fontSize="small" /> */}
             <ArchieveNotes  handleClick={handleClick} />
           </IconButton>
+          <IconButton aria-label="DeleteOutlinedIcon">
+           <DeleteOutlinedIcon  handleclick={noteTrash}/>             
+          </IconButton>
 
           <div className="color-pallet-wrapper">
-            {/* <IconButton aria-label="Add colour" onClick={handleToggle}>
-              <PaletteOutlinedIcon fontSize="small" />
-            </IconButton>
-            <SimplePopper
-              open={open}
-              handleClose={handleClose}
-              handleClickGetColor={handleClickGetColor}
-            /> */}
+          
             <ColorPalletPopper handleClickGetColor={handleClickGetColor}  />
           </div>
 

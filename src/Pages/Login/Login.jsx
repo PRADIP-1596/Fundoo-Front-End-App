@@ -94,7 +94,7 @@ Next = () => {
         console.log(res);
         localStorage.setItem("token", res.data.id);
         console.log(res.data);
-        this.props.history.push("/fundooKeep/notes");
+        // this.props.history.push("/fundooKeep/notes");
       })
       .catch((err) => {
         console.log(err);
@@ -203,6 +203,7 @@ change = e => {
             <br></br>
             <div class="next">
               <Button
+                 href="Dashboard"
                 variant="contained"
                 className="next"
                 color="primary"
