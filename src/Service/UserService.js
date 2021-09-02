@@ -32,7 +32,25 @@ class UserService {
     SearchUserList = (data) => {
         return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, config);
     };
+    archiveNotes = (data) => {
+        return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
+    };
+    UpdatesNotes = (data) => {
+        return axiosservice.postMethod(`${baseUrl}/notes/addUpdateReminderNotes`, data, config);
+    };
+    TrashNotes = (data) => {
+        return axiosservice.postMethod(`${baseUrl}/notes/trashNotes`, data, config);
+    };
+    
+
+    //  = (data) => {
+    //     return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
+    // }
+    // archiveNotes = (data, token) => {
+    //     return axios.postMethod(`${this.baseURL}notes/archiveNotes`, data, { headers: {"Authorization" : token} });
+    // }
 }
+
 
 
 export default UserService

@@ -6,7 +6,11 @@ import PersonIcon from '@material-ui/icons/Person';
 import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/core/styles';
 // import UserService from '../../Service/UserService'
-import './col.css';
+// import './col.css';
+import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
+import  './ArchieveNotes.css';
+
+// import  './ArchievedNotes.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function AddCollaborator(props) {
+export default function ArchieveNotes(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   
@@ -27,7 +31,7 @@ export default function AddCollaborator(props) {
   }, [])
 
 
-  const handleClick = event => {
+  const handleClickarchieveopen = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -46,7 +50,7 @@ export default function AddCollaborator(props) {
   const open = Boolean(anchorEl);
   return (
     <div>
-      <ListItemIcon><Tooltip title="Collaborator"><PersonAddIcon onClick={handleClick} /></Tooltip></ListItemIcon>
+      <ListItemIcon><Tooltip title="Collaborator"><ArchiveOutlinedIcon onClick={handleClickarchieveopen} /></Tooltip></ListItemIcon>
       <Popover
         open={open}
         anchorEl={anchorEl}
@@ -60,9 +64,9 @@ export default function AddCollaborator(props) {
           horizontal: 'center',
         }}
       >
-        <Card style={{ width: "620px" }} onClick={() => collaboratorList()}>
+        <Card style={{backgroundColor: "whitesmoke", width: "620px" }} onClick={() => collaboratorList()}>
           <div>
-            <h4 style={{ fontFamily: "arial", padding: "10px", fontSize: "16px" }}> Collaborators</h4>
+            <h4 style={{ fontFamily: "arial", padding: "10px", fontSize: "16px" }}>ArchieveNotesPart</h4>
           </div>
           {collaboaratorlist.map(o =>
             <div>
@@ -79,13 +83,18 @@ export default function AddCollaborator(props) {
           <ListItem>
             <ListItemAvatar>
               <Avatar>
-                <AddIcon />
+                {/* <AddIcon /> */}
               </Avatar>
             </ListItemAvatar>
-            <TextField name="colaborateEmailId" placeholder="enter emailId" name="collaborator" ></TextField>
+            <h5>NoteArchieved</h5>
+            <div class="retailsname">
+            <h3>Undo</h3>
+            </div>
+            {/* <h6 style="margin-left:25px">Undo</h6> */}
+            {/* <TextField name="colaborateEmailId" placeholder="enter emailId" name="AechieveNotesPart" ></TextField> */}
           </ListItem>
         </Card>
-        <Card style={{ backgroundColor: "", height: "50px" }}>
+        <Card style={{ backgroundColor: "black", height: "50px" }}>
           <div className="collab" style={{ marginLeft: "380px", marginTop: "10px" }}>
             <Button size="small" >cancel</Button>
             <Button size="small">Save</Button>

@@ -1,0 +1,16 @@
+.MuiPopover-paper {
+
+  
+  margin-left:250px !important;
+  /* top:80px !important; */
+  /* width: 50px; */
+  margin: top 250px !important;
+
+    /* background-color: black !important; */
+}
+.retailsname{
+  margin-left:370px;
+  /* font-color: yellow; */
+  font-size: 15px;
+  /* font-color:yellow */
+}

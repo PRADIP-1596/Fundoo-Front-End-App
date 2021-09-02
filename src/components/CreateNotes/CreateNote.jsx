@@ -52,11 +52,17 @@ export default class Notes extends React.Component {
       this.setState({color:data})
 
     }
+    archievenotes=(data)=>{
+     this.setState({value:data})
+    }
+
     close = () => {
         let data = {
             "title": this.state.title,
             "description": this.state.description,
-            "color":this.state.color
+            "color":this.state.color,
+            " archievenotes":this.state. archievenotes,
+
         }
         this.click();
         if (data.title === "" || data.description === "") {
@@ -164,8 +170,10 @@ export default class Notes extends React.Component {
                             <div className="enclose">
                                  < Icons
                                  getcolorfromicon={this.getcolor} 
+                                 getarchieveicon={this.archievenotes}
                                  
                                  />
+                                
                                 <div class="inp">
                                     <input type="button" onClick={this.close} value="Close" />
                                 </div>

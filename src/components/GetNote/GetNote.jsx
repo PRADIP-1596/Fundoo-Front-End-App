@@ -12,7 +12,8 @@ export default class getNote extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            notes:[]
+            notes:[],
+        
         }
     }
     componentDidMount(){
@@ -37,7 +38,8 @@ export default class getNote extends React.Component {
             <div>            
                 <CreateNote updateData={this.getNote} /> 
                 <DisplayNotes updateNote={this.props.getNote} 
-                          NotesArray={this.state.notes} /> 
+                          NotesArray={this.state.notes} />
+                          {/* <DisplayNotes  Notedata={props.updateD} /> */}
             </div>
         )
     }
