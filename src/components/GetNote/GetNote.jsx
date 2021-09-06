@@ -24,8 +24,15 @@ export default class getNote extends React.Component {
         console.log('called');
         service.displayNote()
         .then((res)=>{
+           
             console.log(res);
             this.setState({notes:res.data.data.data})
+            // let newnote = data.filter(
+            //     (i) => (i.isArchived || i.isDeleted) === false
+            //   );
+            //   this.setState({
+            //     notes: newnote.reverse(),
+            //   });
         })
         .catch((err)=>{
             console.log(err);
@@ -36,7 +43,8 @@ export default class getNote extends React.Component {
     render(){
         return (
             <div>            
-                <CreateNote updateData={this.getNote} /> 
+                <CreateNote updateData={this.getNote} 
+                /> 
                 <DisplayNotes updateNote={this.props.getNote} 
                           NotesArray={this.state.notes} />
                           {/* <DisplayNotes  Notedata={props.updateD} /> */}

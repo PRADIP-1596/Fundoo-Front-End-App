@@ -34,6 +34,7 @@ export default class Notes extends React.Component {
             title: "",
             description: "",
             color:"",
+            isArchived: false,
           
         }
     }
@@ -52,6 +53,7 @@ export default class Notes extends React.Component {
       this.setState({color:data})
 
     }
+    
     archievenotes=(data)=>{
      this.setState({value:data})
     }
@@ -67,17 +69,37 @@ export default class Notes extends React.Component {
         this.click();
         if (data.title === "" || data.description === "") {
 
-        } else {
+        }
+        if (this.state.isArchived !== "") {
+          data.append("isArchived", this.state.isArchived);
+        } 
+        else {
             let token = localStorage.getItem('Token');
             service.addNote(data, token).then((data,) => {
             // this.props.updateData();
-                console.log(data);
+            
+        console.log(data);
+        this.props.get();
+        this.setState({
+          color: "#ffffff",
+          showContent: false,
+          title: "",
+          description: "",
+          isArchived: false,
+          isDeleted: false,
+         
+        });
+      
             }).catch((error) => {
                     console.log(error)
             })
         }
     }
-
+    handleArchive = () => {
+      this.setState({
+        isArchived: true,
+      });
+    }
     // collaboratorDialog = () => {
     //     this.setState({
     //       collabOpen: true,
@@ -170,7 +192,7 @@ export default class Notes extends React.Component {
                             <div className="enclose">
                                  < Icons
                                  getcolorfromicon={this.getcolor} 
-                                 getarchieveicon={this.archievenotes}
+                                 archive={this.handleArchive}                           
                                  
                                  />
                                 

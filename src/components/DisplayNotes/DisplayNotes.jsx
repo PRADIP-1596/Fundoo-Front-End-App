@@ -8,9 +8,11 @@ import UserService from "../../Service/UserService";
 
 const service = new UserService();
 
+
 export default class DisplayNotes extends React.Component {
     constructor(props) {
         super(props)
+        
         this.state = ({
             title: "",
             description: "",

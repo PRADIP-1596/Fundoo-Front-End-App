@@ -29,8 +29,8 @@ class UserService {
     displayNote = () => {
         return axiosservice.getMethod(`${baseUrl}/notes/getNotesList`,config);
     };
-    SearchUserList = (data) => {
-        return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, config);
+    SearchUserList = (data, token) => {
+        return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, token, config);
     };
     archiveNotes = (data) => {
         return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
@@ -41,7 +41,12 @@ class UserService {
     TrashNotes = (data) => {
         return axiosservice.postMethod(`${baseUrl}/notes/trashNotes`, data, config);
     };
-    
+    ArchiveNote = (data) => {
+        return axiosservice.postMethod(`${baseUrl}notes/archiveNotes`, data, config);
+      }
+      GetArchiveNotesList = () => {
+        return axiosservice.getMethod(`${baseUrl}notes/getArchiveNotesList`,config);
+      };
 
     //  = (data) => {
     //     return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
