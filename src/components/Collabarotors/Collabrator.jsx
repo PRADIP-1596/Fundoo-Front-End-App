@@ -1,137 +1,119 @@
-import "./col.css";
+ import "./col.css";
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Popper from "@material-ui/core/Popper";
-import Paper from "@material-ui/core/Paper";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
-import { useEffect } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
 
-
-export default function Collabartorsdetails(props) {
+import Popper from "@material-ui/core/Popper";
+import Paper from "@material-ui/core/Paper";
+import UserService from "../../Service/UserService";
+const service = new UserService();
+export default function Collaborator(props) {
   const firstName = localStorage.getItem("firstName");
   const lastName = localStorage.getItem("lastName");
   const email = localStorage.getItem("email");
-  const [open, setOpen] = React.useState(false);
+  const [userPopperOpen, setUserPopperOpen] = React.useState(false);
+  const [collabUsers, setCollabUsers] = React.useState([]);
   const [usersList, setUsersList] = React.useState([]);
-  const [collaborator, setCollaborator] = React.useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
+
+const HandledChangePopperEvents = (e) => {
+    if (e.target.value !== "") {
+      setAnchorEl(anchorEl ? null : e.currentTarget);
+      setUserPopperOpen(true);
+      e.preventDefault();
   
+      let data = {
+        searchWord: e.target.value,
+      };
+      service.SearchUserList(data)
+        .then((res) => {
 
-  let popperopendetails = Boolean(anchorEl);
-
+          e.preventDefault();
+          setUsersList(res.data.data.details);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setAnchorEl(null);
+      setUserPopperOpen(false);
+    }
+  };
+  const handleSave = () => {
+      setOpen(false);
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
-
-
-  const  Popperevents= () => {
-   
-  };
-
-  const [collabUsers, setCollabUsers] = React.useState([]);
-
-  const handleAddUser = () => {
-  
-  };
-
-
-  const detailsdeclaredofthecollabarators = () => {
-    setCollaborator(collabUsers);
-  };
-
-
   const handleClose = () => {
     setOpen(false);
   };
-
-  useEffect(() => {
-    detailsdeclaredofthecollabarators();
-  }, [collabUsers]);
-
   return (
     <div>
-      <IconButton aria-label="Add colaborators" onClick={handleClickOpen}>
+      <IconButton  onClick={handleClickOpen}>
         <PersonAddOutlinedIcon fontSize="small" />
       </IconButton>
       <Dialog
         fullWidth={true}
         open={open}
         onClose={handleClose}
+      
       >
-        <DialogTitle ><b>Collabarators</b></DialogTitle>
-    
-        <DialogContent >
-          <div >
-            <div>
-              <Avatar className="nameofthepassion">P</Avatar>
-            </div>
-            <div >
+        <DialogTitle ><b>Collaborators</b></DialogTitle>
+      
+        <DialogContent>     
               <p>
-                {firstName} {lastName}
+                {firstName} {lastName}  {email}
               </p>
-              <p>
-                {email}
-              </p>
-            </div>
-          </div>
-
           {collabUsers.map((userdefine, index) => (
             <div
               key={index}
-            >
-              <div>
-                <image className="image">P</image>
-              </div>
+              >
               <div>
                 <p>
-                  {userdefine.firstName} {userdefine.LastName}
+                  {userdefine.firstName} {userdefine.lastName}
                 </p>
                 <p>
                   {userdefine.email}
                 </p>
               </div>
-          
             </div>
           ))}
-
           <div>
             <div>
-              <Avatar className="iconsprops">
+              <Avatar>
                 <PersonAddOutlinedIcon fontSize="small" />
               </Avatar>
             </div>
-            <div className="">
+            <div >
               <TextField
-               placeholder="Person Mo No Or Email-Id"
-               type="email"
-               onChange={Popperevents}
-               fullWidth
+                autoFocus
                 id="email"
-              
-              
+                placeholder="Person Details Or Mail Id "
+                type="email"
+                onChange={HandledChangePopperEvents}
+                fullWidth
               />
               <Popper
-                open={popperopendetails}
+                open={userPopperOpen}
                 anchorEl={anchorEl}
                 placement="bottom-start"
+                transition
+                className="user-list-popper-wrapper"
               >
-                <Paper>
+                <Paper className="user-list-popper">
                   {usersList.map((userdefine, index) => (
                     <p
                       key={index}
-                    
-                      onClick={(e) => {
-                        handleAddUser(userdefine, e);
-                      }}
-                    >
-                      {userdefine.email}
+                    >    {userdefine.email}
                     </p>
                   ))}
                 </Paper>
@@ -140,10 +122,10 @@ export default function Collabartorsdetails(props) {
           </div>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>
+          <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button  color="primary blue">
+          <Button onClick={handleSave} color="primary">
             Save
           </Button>
         </DialogActions>

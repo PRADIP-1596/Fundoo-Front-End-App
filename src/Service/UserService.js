@@ -30,7 +30,7 @@ class UserService {
         return axiosservice.getMethod(`${baseUrl}/notes/getNotesList`,config);
     };
     SearchUserList = (data, token) => {
-        return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, token, config);
+        return axiosservice.postMethod(`${baseUrl}/user/searchUserList`, data, config);
     };
     archiveNotes = (data) => {
         return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
@@ -47,7 +47,13 @@ class UserService {
       GetArchiveNotesList = () => {
         return axiosservice.getMethod(`${baseUrl}notes/getArchiveNotesList`,config);
       };
-
+   
+    AddCollaborator = (id, data, token) => {
+        return axiosservice.postMethod(`${this.baseURL}notes/${id}/AddcollaboratorsNotes`, data, { headers: {"Authorization" : token} })
+    }
+    RemoveCollaborator = (id, userId, token) => {
+        return axiosservice.deleteMethod(`${this.baseURL}notes/${id}/removeCollaboratorsNotes/${userId}`,{ headers: {"Authorization" : token} });
+    };
     //  = (data) => {
     //     return axiosservice.postMethod(`${baseUrl}/notes/archiveNotes`, data, config);
     // }
