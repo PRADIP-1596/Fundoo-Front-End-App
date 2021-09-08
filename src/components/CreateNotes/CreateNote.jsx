@@ -34,6 +34,7 @@ export default class Notes extends React.Component {
             title: "",
             description: "",
             color:"",
+            collabarator:"",
             isArchived: false,
           
         }
@@ -54,6 +55,10 @@ export default class Notes extends React.Component {
 
     }
     
+    getcollab=(data)=>{
+      this.setState({collabarator:data})
+
+    }
     archievenotes=(data)=>{
      this.setState({value:data})
     }
@@ -192,7 +197,8 @@ export default class Notes extends React.Component {
                             <div className="enclose">
                                  < Icons
                                  getcolorfromicon={this.getcolor} 
-                                 archive={this.handleArchive}                           
+                                 archive={this.handleArchive}    
+                                 getcollabarators={this.getcollab}                       
                                  
                                  />
                                 

@@ -16,7 +16,7 @@ import './Icon.css'
 import Trash from '../Trash/Trash'
 import UserService from '../../Service/UserService'
 import ColorPalletPopper from '../colorpopper/colorpopper';
-import AddCollaborator from '../Collabarotors/Collabrator';
+import Collaborator from '../Collabarotors/Collabrator';
 import ArchievedNote from '../ArchieveNotes/ArchievedNotes';
 import { Colorize } from '@material-ui/icons';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
@@ -49,6 +49,11 @@ const noteTrash = event => {
     console.log("color",color);
     props.getcolorfromicon(color);
   }
+  // Collaborator
+  const handleClickOpen = (e) => { 
+    // console.log("color",color);
+    props.getcollabarators(e);
+  }
   const handleClickArchive = (e,value) => { 
   console.log("detailsarchieveelements",value);
   // props. getarchieveicon(value)
@@ -65,7 +70,7 @@ const noteTrash = event => {
           </IconButton>
           <IconButton aria-label="Add colaborators">
             {/* <PersonAddOutlinedIcon fontSize="small" /> */}
-            <AddCollaborator handleClick={handleClick} />
+            <Collaborator handleClickOpen={handleClickOpen} />
           </IconButton>
           <IconButton aria-label="Archive">
             {/* <PersonAddOutlinedIcon fontSize="small" /> */}

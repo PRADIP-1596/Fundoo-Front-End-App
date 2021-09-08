@@ -33,6 +33,7 @@ const HandledChangePopperEvents = (e) => {
       let data = {
         searchWord: e.target.value,
       };
+      console.log(data)
       service.SearchUserList(data)
         .then((res) => {
 
@@ -55,6 +56,11 @@ const HandledChangePopperEvents = (e) => {
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const takecollab = (userdefine) => {
+    console.log(userdefine);  
+    
+    
   };
   return (
     <div>
@@ -112,7 +118,7 @@ const HandledChangePopperEvents = (e) => {
                 <Paper className="user-list-popper">
                   {usersList.map((userdefine, index) => (
                     <p
-                      key={index}
+                      key={index} onClick={(e)=>takecollab(userdefine)} 
                     >    {userdefine.email}
                     </p>
                   ))}
