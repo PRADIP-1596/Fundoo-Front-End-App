@@ -59,9 +59,13 @@ const HandledChangePopperEvents = (e) => {
   };
   const takecollab = (userdefine) => {
     console.log(userdefine);  
-    
-    
+    setCollabUsers([...collabUsers,userdefine]);
+    setAnchorEl(null);
+    setUserPopperOpen(false);
+      
   };
+  
+
   return (
     <div>
       <IconButton  onClick={handleClickOpen}>
